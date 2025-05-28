@@ -3,7 +3,7 @@ RUN apk add --no-cache git
 RUN git clone https://github.com/kshitijhatwar/vprofile-project.git
 RUN cd vprofile-project && git checkout main && mvn install
 
-FROM tomcat:10-jdk21
+FROM tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=BUILD_IMAGE vprofile-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
 
