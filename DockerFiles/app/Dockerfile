@@ -1,6 +1,7 @@
 FROM maven:3.9.9-eclipse-temurin-21-alpine AS BUILD_IMAGE
 RUN apk add --no-cache git
 RUN git clone https://github.com/kshitijhatwar/vprofile-project.git
+ENV MAVEN_OPTS="-Xmx2048m"
 RUN cd vprofile-project && git checkout main && mvn install
 
 FROM tomcat
