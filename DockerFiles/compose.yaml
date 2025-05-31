@@ -18,7 +18,7 @@ services:
         - "11211:11211"
 
    rmq01:
-      image: rabbitmg
+      image: rabbitmq
       container_name: rmq01
       ports:
         - "5672:5672"
