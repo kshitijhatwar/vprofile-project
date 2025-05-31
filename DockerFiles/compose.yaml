@@ -1,7 +1,7 @@
 services:
    vprodb:
       build:
-         context: .\vprofile-project\DockerFiles\DB
+         context: ./vprofile-project/DockerFiles/DB
       image: kshitijhatwar/vprofile-db-image
       container_name: vprodb
       ports:
@@ -28,7 +28,7 @@ services:
 
    vproapp:
       build:
-         context: .\vprofile-project\DockerFiles\app
+         context: ./vprofile-project/DockerFiles/app
       image: kshitijhatwar/vprofile-app-image
       container_name: vproapp
       ports:
@@ -38,7 +38,7 @@ services:
 
    vproweb:
       build:
-         context: .\vprofile-project\DockerFiles\Web
+         context: ./vprofile-project/DockerFiles/Web
       image: kshitijhatwar/vprofile-web-image
       container_name: vproweb
       ports:
