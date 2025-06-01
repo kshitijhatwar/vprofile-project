@@ -13,13 +13,13 @@ services:
 
    mc01:
       image: memcached
-      container_name: mc01
+      container_name: vpromc-svc
       ports:
         - "11211:11211"
 
    rmq01:
       image: rabbitmq
-      container_name: rmq01
+      container_name: vprormq-svc
       ports:
         - "5672:5672"
       environment:
