@@ -5,8 +5,8 @@ metadata:
 spec:
   ports:
   - port: 8080
-      targetPort: 8080
-      protocol: TCP
-  selectors:
+    targetPort: 8080
+    protocol: TCP
+  selector:
     app: vproapp
   type: ClusterIP
