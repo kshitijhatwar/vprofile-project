@@ -3,7 +3,7 @@ services:
       build:
          context: /home/ubuntu/vprofile-project/DockerFiles/DB
       image: kshitijhatwar/vprofile-db-image
-      container_name: vprodb
+      container_name: vprodb-svc
       ports:
         - "3306:3306"
       volumes:
