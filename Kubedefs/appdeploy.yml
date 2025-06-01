@@ -24,9 +24,9 @@ spec:
       initContainers:
       - name: init-dbcontainer
         image: busybox
-        arg: ['sh', '-c', "until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
+        args: ['sh', '-c', "until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
      
       initContainers:
-      - name: init-dbcontainer
+      - name: init-rmqcontainer
         image: busybox
-        arg: ['sh', '-c', "until nslookup vprormq-svc.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
+        args: ['sh', '-c', "until nslookup vprormq-svc.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
