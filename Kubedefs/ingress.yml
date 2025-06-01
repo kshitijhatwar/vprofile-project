@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: kshitijhatwar.xyz
+  - host: project.kshitijhatwar.xyz
     http:
       paths:
       - path: /
