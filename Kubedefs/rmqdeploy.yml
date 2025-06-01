@@ -27,4 +27,4 @@ spec:
                name: app-secret
                key: rmp-pass
          - name: RABBITMQ_DEFAULT_USER
-          value: "guest"
+           value: "guest"
