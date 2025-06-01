@@ -5,8 +5,8 @@ metadata:
 spec:
   ports:
   - port: 5672
-      targetPort: vprormq-port
-      protocol: TCP
-  selectors:
+    targetPort: vprormq-port
+    protocol: TCP
+  selector:
     app: vprormq
   type: ClusterIP
