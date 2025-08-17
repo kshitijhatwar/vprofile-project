@@ -26,11 +26,9 @@ spec:
         image: busybox
         command: ['sh', '-c']
         args:
-          - apk add --no-cache netcat-openbsd; \
-            until nc -zv vprodb-svc 3306; do echo "Waiting..."; sleep 2; done
-
+          - 'until echo > /dev/tcp/vprodb-svc/3306; do echo "Waiting for DB..."; sleep 2; done'
+          
       - name: init-rmqcontainer
         image: busybox
         args:
-          - apk add --no-cache netcat-openbsd; \
-            until nc -zv vprodb-svc 3306; do echo "Waiting..."; sleep 2; done
+          - 'until echo > /dev/tcp/vprormq-svc/5672; do echo "Waiting for RabbitMQ..."; sleep 2; done'
