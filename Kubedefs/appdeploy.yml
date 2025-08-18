@@ -28,7 +28,7 @@ spec:
         - sh
         - -c
         - |
-          until nc -zv vprodb-svc.project.svc.cluster.local 3306; do
+          until nc -zv vprodb-svc 3306; do
             echo "Waiting for DB..."
             sleep 2
           done
@@ -39,7 +39,7 @@ spec:
         - sh
         - -c
         - |
-          until nc -zv vprormq-svc.project.svc.cluster.local 5672; do
-            echo "Waiting for DB..."
+          until nc -zv vprormq-svc 5672; do
+            echo "Waiting for rmq..."
             sleep 2
           done
