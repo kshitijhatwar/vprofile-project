@@ -1,0 +1,7 @@
+appname : vproapp
+dbname : vprodb
+app-svc : vproapp-svc
+db-svc : vprodb-svc
+mcname : vpromc
+mc-svc : vpromc-svc
+rmqname : vprormq

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appname }}
+  labels:
+    app: {{ .Values.appname }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}
+    spec:
+      containers:
+      - name: {{ .Values.appname }}
+        image: kshitijhatwar/vprofile-app-image
+        ports:
+        - name: vproapp-port
+          containerPort: 8080
+      
+      initContainers:
+      - name: init-dbcontainer
+        image: busybox
+        command: 
+        - sh
+        - -c
+        - |
+          until nc -zv {{ .Values.db-svc }} 3306; do
+            echo "Waiting for DB..."
+            sleep 2
+          done
+          
+      - name: init-rmqcontainer
+        image: busybox
+        command:
+        - sh
+        - -c
+        - |
+          until nc -zv vprormq-svc 5672; do
+            echo "Waiting for rmq..."
+            sleep 2
+          done
