@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.dbSvc }}
+  name: "{{ .Release.Name }}-{{ .Values.dbSvc }}"
 spec:
   ports:
   - port: 3306
