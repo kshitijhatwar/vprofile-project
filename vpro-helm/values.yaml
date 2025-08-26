@@ -1,6 +1,6 @@
 appname : vproapp
 dbname : vprodb
-app-svc : vproapp-svc
+appSvc : vproapp-svc
 dbSvc : vprodb-svc
 mcname : vpromc
 mcSvc : vpromc-svc
