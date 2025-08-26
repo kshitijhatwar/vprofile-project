@@ -28,7 +28,7 @@ spec:
         - sh
         - -c
         - |
-          until nc -zv {{ .Values.dbSvc }} 3306; do
+          until nc -zv {{ .Release.Name }}-{{ .Values.dbSvc }} 3306; do
             echo "Waiting for DB..."
             sleep 2
           done
