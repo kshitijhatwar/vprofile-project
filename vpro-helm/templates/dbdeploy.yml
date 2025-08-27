@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.dbname }}
+  name: {{ include "db.fullname" . }}
   labels:
-    app: {{ .Values.dbname }}
+    app: {{ include "db.fullname" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.dbname }}
+      app: {{ include "db.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.dbname }}
+        app: {{ include "db.fullname" . }}
     spec:
       containers:
-      - name: {{ .Values.dbname }}
+      - name: {{ include "db.fullname" . }}
         image: kshitijhatwar/vprofile-db-image
         volumeMounts:
         - name: vpro-db-data

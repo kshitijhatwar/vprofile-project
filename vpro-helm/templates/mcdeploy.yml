@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.mcname }}
+  name: {{ include "mc.fullname" . }}
   labels:
-    app: {{ .Values.mcname }}
+    app: {{ include "mc.fullname" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.mc.replicas}}
   selector:
     matchLabels:
-      app: {{ .Values.mcname }}
+      app: {{ include "mc.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.mcname }}
+        app: {{ include "mc.fullname" . }}
     spec:
       containers:
-      - name: {{ .Values.mcname }}
-        image: memcached
+      - name: {{ include "mc.fullname" . }}
+        image: {{ .Values.mc.image }}
         ports:
         - name: vpromc-port
           containerPort: 11211

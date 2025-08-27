@@ -1,7 +1,23 @@
-appname : vproapp
-dbname : vprodb
-appSvc : vproapp-svc
 dbSvc : vprodb-svc
-mcname : vpromc
-mcSvc : vpromc-svc
-rmqname : vprormq
+
+app:
+  appname : vproapp
+  image: kshitijhatwar/vprofile-app-image
+  replicas: 1
+  appSvc : vproapp-svc
+
+db:
+  dbname : vprodb
+
+
+mc:
+  mcname : vpromc
+  image: memcached
+  replicas: 1
+  mcSvc : vpromc-svc
+
+rmq:
+  rmqname : vprormq
+  image: rabbitmq
+  replicas: 1
+  rmqSvc: vprormq-svc

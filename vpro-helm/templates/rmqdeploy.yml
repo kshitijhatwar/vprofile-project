@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.rmqname }}
+  name: {{ include "rmq.fullname" . }}
   labels:
-    app: {{ .Values.rmqname }}
+    app: {{ include "rmq.fullname" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.rmq.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.rmqname }}
+      app: {{ include "rmq.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.rmqname }}
+        app: {{ include "rmq.fullname" . }}
     spec:
       containers:
-      - name: {{ .Values.rmqname }}
-        image: rabbitmq
+      - name: {{ include "rmq.fullname" . }}
+        image: {{ .Values.rmq.image }}
         ports:
         - name: vprormq-port
           containerPort: 5672

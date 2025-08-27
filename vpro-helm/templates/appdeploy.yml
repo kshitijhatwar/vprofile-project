@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appname }}
+  name: {{ include "app.fullname" . }}
   labels:
-    app: {{ .Values.appname }}
+    app: {{ include "app.fullname" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.app.replicas}}
   selector:
     matchLabels:
-      app: {{ .Values.appname }}
+      app: {{ include "app.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.appname }}
+        app: {{ include "app.fullname" . }}
     spec:
       containers:
-      - name: {{ .Values.appname }}
-        image: kshitijhatwar/vprofile-app-image
+      - name: {{ include "app.fullname" . }}
+        image: {{ .Values.app.image}}
         ports:
         - name: vproapp-port
           containerPort: 8080
@@ -39,7 +39,7 @@ spec:
         - sh
         - -c
         - |
-          until nc -zv vprormq-svc 5672; do
+          until nc -zv {{ include "rmq.svcname" . }} 5672; do
             echo "Waiting for rmq..."
             sleep 2
           done

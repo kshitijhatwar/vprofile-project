@@ -8,5 +8,5 @@ spec:
     targetPort: vprodb-port
     protocol: TCP
   selector:
-    app: {{ .Values.dbname }}
+    app: {{ include "db.fullname" . }}
   type: ClusterIP
