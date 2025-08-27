@@ -11,7 +11,7 @@
 {{- end }}
 
 {{- define "rmq.fullname" -}}
-{{ .Values.rmq.rmqname }}-{{ .Releases.Name }}
+{{ .Values.rmq.rmqname }}-{{ .Release.Name }}
 {{- end }}
 
 {{- define "rmq.svcname" -}}
