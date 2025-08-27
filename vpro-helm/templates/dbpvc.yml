@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: db-pv-claim
   labels:
-    app: "{{ .Release.Name }}-{{ .Values.dbname }}"
+    app: "{{ .Release.Name }}-{{ .Values.db.dbname }}"
 spec:
   resources:
     requests:
