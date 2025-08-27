@@ -8,5 +8,5 @@ spec:
     targetPort: vpromc-port
     protocol: TCP
   selector:
-    app: {{ include " mc.fullname" . }}
+    app: {{ include "mc.fullname" . }}
   type: ClusterIP
